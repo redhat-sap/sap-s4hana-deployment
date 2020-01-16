@@ -73,16 +73,6 @@ sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
 sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
 sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we want to override sap_s4hana_deployment_master_password|
 
-## HANA Deploy and HANA Lincese
-
-While using this role 2 different scenarios can be covered. These are SAP HANA deployment in a new RHEL Server and set the HANA DB License in an existing deployment.
-
-In order the role to run the first scenario, SAP HANA deployment in a new RHEL Server, the variable `apply_license` must be `false`.
-
-In order the role to run the second scenario, set the HANA DB License in an existing deployment, the variable `apply_license` must be `true`.
-
-Variables required for both scenarios are the ones specified already.
-
 ## Dependencies
 
 Before using this role ensure your system has been configured properly to run SAP applications and HANA.
