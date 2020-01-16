@@ -1,0 +1,4 @@
+---
+
+- import_tasks: s4hana_deploy.yml
+  when: not apply_license
