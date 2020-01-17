@@ -1,3 +1,4 @@
 ---
-
-- import_tasks: s4hana_deploy.yml
+- hosts: all
+  roles:
+    - { role: redhat_sap.sap_s4hana_deployment }
