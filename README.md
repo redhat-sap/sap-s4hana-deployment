@@ -1,3 +1,5 @@
+# This repo is still WIP and not ready to be used!!!
+
 # sap-s4hana-deployment [![Build Status](https://travis-ci.com/redhat-sap/sap-hana-deployment.svg?branch=master)](https://travis-ci.com/redhat-sap/sap-hana-deployment)
 
 This role installs SAP S/4 HANA on a RHEL 7.x or 8.x system
