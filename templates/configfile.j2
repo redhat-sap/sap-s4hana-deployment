@@ -186,7 +186,7 @@ NW_Recovery_Install_HDB.sidAdmName = {{ sap_s4hana_deployment_db_sid }}adm
 # The password of the OS HANA '<dbsid>adm' user
 NW_Recovery_Install_HDB.sidAdmPassword = {{ sap_s4hana_deployment_db_sidadm_password }}
 
-# DEPRECATED, DO NOT USE!
+# Path to SAP Crypto files in kernel 
 NW_SAPCrypto.SAPCryptoFile = {{ sap_s4hana_deployment_kernel_independent_path }}
 
 # Enable the instance agent (sapstartsrv) data supplier to send operating system information to the System Landscape Directory (SLD). Default is 'false'.
@@ -210,26 +210,17 @@ NW_SAPCrypto.SAPCryptoFile = {{ sap_s4hana_deployment_kernel_independent_path }}
 # SAP INTERNAL USE ONLY
 # NW_System.installSAPHostAgent = true
 
-# DEPRECATED, DO NOT USE!
-# NW_Unpack.dbaToolsSar = 
-
-# DEPRECATED, DO NOT USE!
+# Path to IGS files
 NW_Unpack.igsExeSar = {{ sap_s4hana_deployment_igs_path }}
 
-# DEPRECATED, DO NOT USE!
+# Path to IGS Helper files
 NW_Unpack.igsHelperSar = {{ sap_s4hana_deployment_igs_helper_path }}
 
-# DEPRECATED, DO NOT USE!
+# Path to kernel DB dependent files
 NW_Unpack.sapExeDbSar = {{ sap_s4hana_deployment_kernel_dependent_path }}
 
-# DEPRECATED, DO NOT USE!
+# Path to kernel DB independent files
 NW_Unpack.sapExeSar = {{ sap_s4hana_deployment_kernel_independent_path }}
-
-# DEPRECATED, DO NOT USE!
-# NW_Unpack.sapJvmSar = 
-
-# DEPRECATED, DO NOT USE!
-# NW_Unpack.xs2Sar = 
 
 # SAP offers the option to skip setting of security profile parameters (NOT recommended) only for compatibility reasons. Set to true and the file with recommended security settings will not be taken into consideration. See SAP Note 2714839 for security recommendations.
 # NW_adaptProfile.skipSecurityProfileSettings = false

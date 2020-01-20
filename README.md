@@ -77,23 +77,23 @@ sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we 
 
 Before using this role ensure your system has been configured properly to run SAP applications and HANA.
 
-You can use the supported roles `sap-preconfigure` and `sap-hana-preconfigure` comming with RHEL 7 and 8 with RHEL for SAP Solutions Subscription
+You can use the supported roles `sap-preconfigure` and `sap-netweaver-preconfigure` comming with RHEL 7 and 8 with RHEL for SAP Solutions Subscription
 
-The upstream version of these role can be found [here](https://github.com/linux-system-roles/sap-preconfigure) and [here](https://github.com/linux-system-roles/sap-hana-preconfigure)
+The upstream version of these role can be found [here](https://github.com/linux-system-roles/sap-preconfigure) and [here](https://github.com/linux-system-roles/sap-netweaver-preconfigure)
 
 ## Example Playbook
 
 ```yaml
     - hosts: servers
       roles:
-      - role: sap-hana-deployment
+      - role: sap-s4hana-deployment
 ```
 
 ## Example Inventory
 
 ```yaml
 sap_s4hana_deployment_swpm_path: /usr/local/src
-ap_s4hana_deployment_sapcar_file_name: SWPM20SP04_6-80003424.SAR
+sap_s4hana_deployment_sapcar_file_name: SWPM20SP04_6-80003424.SAR
 sap_s4hana_deployment_sapcar_path: /usr/local/src
 sap_s4hana_deployment_sapcar_file_name: SAPCAR_1311-80000935.EXE
 sap_s4hana_deployment_product_id: S4HANA1909.CORE.HDB.ABAP
