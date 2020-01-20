@@ -30,7 +30,7 @@
   copy:
     src: "{{ sap_s4hana_deployment_password_file_path }}/instkey.pkey"
     dest: "{{ tmpdir.path }}/instkey.pkey"
-    when: sap_s4hana_deployment_use_password_file
+    when: sap_s4hana_deployment_use_password_file == 'y'
 
 - name: Install SAP S4HANA
   command: >-
