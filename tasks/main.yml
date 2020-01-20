@@ -26,11 +26,11 @@
     dest: "{{ tmpdir.path }}/inifile.params"
   register: cftemplate
 
-- name: Copy password file to the same location as inifile.params
-  copy:
-    src: "{{ sap_s4hana_deployment_password_file_path }}/instkey.pkey"
-    dest: "{{ tmpdir.path }}/instkey.pkey"
-    when: sap_s4hana_deployment_use_password_file == 'y'
+#- name: Copy password file to the same location as inifile.params
+#  copy:
+ #   src: "{{ sap_s4hana_deployment_password_file_path }}/instkey.pkey"
+  #  dest: "{{ tmpdir.path }}/instkey.pkey"
+   # when: sap_s4hana_deployment_use_password_file == 'y'
 
 - name: Install SAP S4HANA
   command: >-
