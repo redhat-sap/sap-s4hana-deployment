@@ -211,16 +211,16 @@ NW_SAPCrypto.SAPCryptoFile = {{ sap_s4hana_deployment_kernel_independent_path }}
 # NW_System.installSAPHostAgent = true
 
 # Path to IGS files
-NW_Unpack.igsExeSar = {{ sap_s4hana_deployment_igs_path }}
+NW_Unpack.igsExeSar = "{{ sap_s4hana_deployment_igs_path }}/{{ sap_s4hana_deployment_igs_file_name }}"
 
 # Path to IGS Helper files
-NW_Unpack.igsHelperSar = {{ sap_s4hana_deployment_igs_helper_path }}
+NW_Unpack.igsHelperSar = "{{ sap_s4hana_deployment_igs_helper_path }}/{{ sap_s4hana_deployment_igs_helper_file_name }}"
 
 # Path to kernel DB dependent files
-NW_Unpack.sapExeDbSar = {{ sap_s4hana_deployment_kernel_dependent_path }}
+NW_Unpack.sapExeDbSar = "{{ sap_s4hana_deployment_kernel_dependent_path }}/{{ sap_s4hana_deployment_kernel_dependent_file_name }}"
 
 # Path to kernel DB independent files
-NW_Unpack.sapExeSar = {{ sap_s4hana_deployment_kernel_independent_path }}
+NW_Unpack.sapExeSar = "{{ sap_s4hana_deployment_kernel_independent_path }}/{{ sap_s4hana_deployment_kernel_independent_file_name }}"
 
 # SAP offers the option to skip setting of security profile parameters (NOT recommended) only for compatibility reasons. Set to true and the file with recommended security settings will not be taken into consideration. See SAP Note 2714839 for security recommendations.
 # NW_adaptProfile.skipSecurityProfileSettings = false

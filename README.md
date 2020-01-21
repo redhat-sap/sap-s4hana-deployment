@@ -1,6 +1,6 @@
 # This repo is still WIP and not ready to be used!!!
 
-# sap-s4hana-deployment [![Build Status](https://travis-ci.com/redhat-sap/sap-hana-deployment.svg?branch=master)](https://travis-ci.com/redhat-sap/sap-hana-deployment)
+# sap-s4hana-deployment [![Build Status](https://travis-ci.com/redhat-sap/sap-s4hana-deployment.svg?branch=master)](https://travis-ci.com/redhat-sap/sap-s4hana-deployment)
 
 This role installs SAP S/4 HANA on a RHEL 7.x or 8.x system
 
@@ -37,16 +37,16 @@ It is also important that your disks are setup according to the [SAP storage req
 | variable | info | required? |
 |:--------:|:----:|:---------:|
 |sap_s4hana_deployment_use_password_file|Indicates if the parameter file to deploy S/4 HANA has the passwords hashed in which case the file instkey.pkey must be provided|no, defaulted to `n` value|
-|sap_s4hana_deployment_password_file_path|Path to the password file instkey.pkey|no, defaulted to `n` value|
-|sap_s4hana_deployment_sapcar_path|Target host directory path where SAPCAR tool file is located|yes
-|sap_s4hana_deployment_sapcar_file_name|Name of theSAPCAR tool file|yes|
+|sap_s4hana_deployment_password_file_path|Path to the password file instkey.pkey|no|
+|sap_s4hana_deployment_sapcar_path|Target host directory path where SAPCAR tool file is located|yes|
+|sap_s4hana_deployment_sapcar_file_name|Name of the SAPCAR tool file|yes|
 |sap_s4hana_deployment_swpm_path|Target host directory path where SWPM tool file is located|yes|
 |sap_s4hana_deployment_swpm_sar_file_name|Name of the SWPM .SAR file|yes|
 |sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, defaulted to the product ID of S/4 HANA 1909 `S4HANA1909.CORE.HDB.ABAP`|
 |sap_s4hana_deployment_diagnostics_agent_password|Password for Diagnostics Agent|no|
 sap_s4hana_deployment_db_schema|Name of the HANA DB schema|yes, defaulted to `SAPHANADB`|
 sap_s4hana_deployment_db_schema_password|Password of the HANA DB schema|yes|
-sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes|
+sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
 sap_s4hana_deployment_ascs_instance_hostname|ASCS instance hostname|yes|
 sap_s4hana_deployment_pas_instance_nr|PAS instance number|no|
 sap_s4hana_deployment_pas_instance_hostname|PAS instance hostname|no|
@@ -56,7 +56,7 @@ sap_s4hana_deployment_master_password|Password for users sapadm, \<sid>adm and S
 sap_s4hana_deployment_sid|SID of the S/4 HANA system|yes|
 sap_s4hana_deployment_db_host|Host where the HANA DB runs|yes|
 sap_s4hana_deployment_db_sid|SID of the HANA DB|yes|
-sap_s4hana_deployment_hana_instance_nr|Number of the HANA DB instance|yes|
+sap_s4hana_deployment_hana_instance_nr|Number of the HANA DB instance|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
 sap_s4hana_deployment_hana_systemdb_password|Password for HANA SYSTEM user for SystemDB in a multi tenant HANA|yes, if HANA 2.0 is being used|
 sap_s4hana_deployment_hana_system_password|Password for HANA SYSTEM user for the whole HANA|yes|
 sap_s4hana_deployment_parallel_jobs_nr|Number of parallel jobs to run the import of the S/4 HANA software into the HAN DB|yes|
@@ -70,7 +70,7 @@ sap_s4hana_deployment_kernel_dependent_file_name|Name of the kernel DB dependent
 sap_s4hana_deployment_kernel_independent_path|Path to the kernel DB independent file|yes|
 sap_s4hana_deployment_kernel_independent_file_name|Name of the kernel DB independent file|yes|
 sap_s4hana_deployment_fqdn|FQDN of the server|no|
-sap_s4hana_deployment_set_fqdn|Specifies if FQDN will be used|no, defaulted to `false`|
+sap_s4hana_deployment_set_fqdn|Specifies if FQDN will be used|no, defaulted to `true`|
 sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
 sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
 sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we want to override sap_s4hana_deployment_master_password|
@@ -95,7 +95,7 @@ The upstream version of these role can be found [here](https://github.com/linux-
 
 ```yaml
 sap_s4hana_deployment_swpm_path: /usr/local/src
-sap_s4hana_deployment_sapcar_file_name: SWPM20SP04_6-80003424.SAR
+sap_s4hana_deployment_swpm_sar_file_name: SWPM20SP04_6-80003424.SAR
 sap_s4hana_deployment_sapcar_path: /usr/local/src
 sap_s4hana_deployment_sapcar_file_name: SAPCAR_1311-80000935.EXE
 sap_s4hana_deployment_product_id: S4HANA1909.CORE.HDB.ABAP
@@ -105,6 +105,24 @@ sap_s4hana_deployment_master_password: "mysecretpassword"
 sap_s4hana_deployment_sid: RHS
 sap_s4hana_deployment_ascs_instance_nr: "00"
 sap_s4hana_deployment_ascs_instance_hostname: "myhostname"
+sap_s4hana_deployment_db_host: "rhel-hana-host"
+sap_s4hana_deployment_db_sid: "RHE"
+sap_s4hana_deployment_hana_instance_nr: "00"
+sap_s4hana_deployment_hana_system_password: "mysecretpassword"
+sap_s4hana_deployment_parallel_jobs_nr: 30
+sap_s4hana_deployment_db_sidadm_password: "mysecretpassword"
+sap_s4hana_deployment_igs_path: /usr/local/src
+sap_s4hana_deployment_igs_file_name: igsexe_9-80003187.sar
+sap_s4hana_deployment_igs_helper_path: /usr/local/src
+sap_s4hana_deployment_igs_helper_file_name: igshelper_17-10010245.sar
+sap_s4hana_deployment_kernel_dependent_path: /usr/local/src
+sap_s4hana_deployment_kernel_dependent_file_name: SAPEXEDB_27-80004392.SAR
+sap_s4hana_deployment_kernel_independent_path: /usr/local/src
+sap_s4hana_deployment_kernel_independent_file_name: SAPEXE_27-80004393.SAR
+sap_s4hana_deployment_software_path: /usr/local/src
+
+
+
 ```
 
 ## License
