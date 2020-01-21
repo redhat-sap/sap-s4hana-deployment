@@ -23,10 +23,10 @@ HDB_Schema_Check_Dialogs.validateSchemaName = false
 # HDB_Software_Dialogs.useMediaCD = false
 
 # Database hostnames that will be set directly in hdbuserstore without resolving them in HANA. Comma separated. Example (host1,host2)
-# HDB_Userstore.doNotResolveHostnames = 
+# HDB_Userstore.doNotResolveHostnames =
 
 # Alternative port for SystemDB to be used in hdbuserstore
-# HDB_Userstore.systemDBPort = 
+# HDB_Userstore.systemDBPort =
 
 # Use ABAP secure store instead of HANA userstore. Default: false for HANA user store.
 # HDB_Userstore.useABAPSSFS = false
@@ -181,7 +181,7 @@ NW_Recovery_Install_HDB.extractParallelJobs = {{ sap_s4hana_deployment_parallel_
 # NW_Recovery_Install_HDB.loadOrMount = load
 
 # The OS user of the HANA '<dbsid>adm' user
-NW_Recovery_Install_HDB.sidAdmName = {{ sap_s4hana_deployment_db_sid }}adm
+NW_Recovery_Install_HDB.sidAdmName = {{ sap_s4hana_deployment_db_sid|lower }}adm
 
 # The password of the OS HANA '<dbsid>adm' user
 NW_Recovery_Install_HDB.sidAdmPassword = {{ sap_s4hana_deployment_db_sidadm_password }}

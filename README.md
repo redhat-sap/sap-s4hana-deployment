@@ -69,7 +69,7 @@ sap_s4hana_deployment_kernel_dependent_path|Path to the kernel DB dependent file
 sap_s4hana_deployment_kernel_dependent_file_name|Name of the kernel DB dependent file|yes|
 sap_s4hana_deployment_kernel_independent_path|Path to the kernel DB independent file|yes|
 sap_s4hana_deployment_kernel_independent_file_name|Name of the kernel DB independent file|yes|
-sap_s4hana_deployment_fqdn|FQDN of the server|no|
+sap_s4hana_deployment_fqdn|FQDN of the server (short name if FQDN is not configured)|yes|
 sap_s4hana_deployment_set_fqdn|Specifies if FQDN will be used|no, defaulted to `true`|
 sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
 sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
@@ -120,9 +120,7 @@ sap_s4hana_deployment_kernel_dependent_file_name: SAPEXEDB_27-80004392.SAR
 sap_s4hana_deployment_kernel_independent_path: /usr/local/src
 sap_s4hana_deployment_kernel_independent_file_name: SAPEXE_27-80004393.SAR
 sap_s4hana_deployment_software_path: /usr/local/src
-
-
-
+sap_s4hana_deployment_fqdn: "rhel-01"
 ```
 
 ## License
