@@ -42,38 +42,42 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_sapcar_file_name|Name of the SAPCAR tool file|yes|
 |sap_s4hana_deployment_swpm_path|Target host directory path where SWPM tool file is located|yes|
 |sap_s4hana_deployment_swpm_sar_file_name|Name of the SWPM .SAR file|yes|
-|sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, defaulted to the product ID of S/4 HANA 1909 `S4HANA1909.CORE.HDB.ABAP`|
+|sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, defaulted to the product ID of S/4 HANA 1809 `NW_ABAP_OneHost:S4HANA1809.CORE.HDB.ABAP`|
 |sap_s4hana_deployment_diagnostics_agent_password|Password for Diagnostics Agent|no|
-sap_s4hana_deployment_db_schema|Name of the HANA DB schema|yes, defaulted to `SAPHANADB`|
-sap_s4hana_deployment_db_schema_password|Password of the HANA DB schema|yes|
-sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
-sap_s4hana_deployment_ascs_instance_hostname|ASCS instance hostname|yes|
-sap_s4hana_deployment_pas_instance_nr|PAS instance number|no|
-sap_s4hana_deployment_pas_instance_hostname|PAS instance hostname|no|
-sap_s4hana_deployment_ddic_000_password|Password for SAP DDIC user in client 000|no|
-sap_s4hana_deployment_ddic_001_password|Password for SAP DDIC user in client 001|no|
-sap_s4hana_deployment_master_password|Password for users sapadm, \<sid>adm and SAP DDIC in clients 000 and 001|yes|
-sap_s4hana_deployment_sid|SID of the S/4 HANA system|yes|
-sap_s4hana_deployment_db_host|Host where the HANA DB runs|yes|
-sap_s4hana_deployment_db_sid|SID of the HANA DB|yes|
-sap_s4hana_deployment_hana_instance_nr|Number of the HANA DB instance|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
-sap_s4hana_deployment_hana_systemdb_password|Password for HANA SYSTEM user for SystemDB in a multi tenant HANA|yes, if HANA 2.0 is being used|
-sap_s4hana_deployment_hana_system_password|Password for HANA SYSTEM user for the whole HANA|yes|
-sap_s4hana_deployment_parallel_jobs_nr|Number of parallel jobs to run the import of the S/4 HANA software into the HAN DB|yes|
-sap_s4hana_deployment_db_sidadm_password|Password of the \<sid>adm user in the HANA server|yes|
-sap_s4hana_deployment_igs_path|Path to the IGS file|yes|
-sap_s4hana_deployment_igs_file_name|Name of the IGS file|yes|
-sap_s4hana_deployment_igs_helper_path|Path to the IGS Helper file|yes|
-sap_s4hana_deployment_igs_helper_file_name|Name of the IGS Helper file|yes|
-sap_s4hana_deployment_kernel_dependent_path|Path to the kernel DB dependent file|yes|
-sap_s4hana_deployment_kernel_dependent_file_name|Name of the kernel DB dependent file|yes|
-sap_s4hana_deployment_kernel_independent_path|Path to the kernel DB independent file|yes|
-sap_s4hana_deployment_kernel_independent_file_name|Name of the kernel DB independent file|yes|
-sap_s4hana_deployment_fqdn|FQDN of the server (short name if FQDN is not configured)|yes|
-sap_s4hana_deployment_set_fqdn|Specifies if FQDN will be used|no, defaulted to `true`|
-sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
-sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
-sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we want to override sap_s4hana_deployment_master_password|
+|sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
+|sap_s4hana_deployment_ascs_instance_hostname|ASCS instance hostname|yes|
+|sap_s4hana_deployment_pas_instance_nr|PAS instance number|no|
+|sap_s4hana_deployment_pas_instance_hostname|PAS instance hostname|no|
+|sap_s4hana_deployment_ddic_000_password|Password for SAP DDIC user in client 000|no|
+|sap_s4hana_deployment_ddic_001_password|Password for SAP DDIC user in client 001|no|
+|sap_s4hana_deployment_master_password|Password for users sapadm, \<sid>adm and SAP DDIC in clients 000 and 001|yes|
+
+sap_s4hana_deployment_db_schema_abap:
+sap_s4hana_deployment_db_schema_abap_password:
+sap_s4hana_deployment_db_schema_java:
+sap_s4hana_deployment_db_schema_java_password:
+
+|sap_s4hana_deployment_sid|SID of the S/4 HANA system|yes|
+|sap_s4hana_deployment_db_host|Host where the HANA DB runs|yes|
+|sap_s4hana_deployment_db_sid|SID of the HANA DB|yes|
+|sap_s4hana_deployment_hana_instance_nr|Number of the HANA DB instance|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
+|sap_s4hana_deployment_hana_systemdb_password|Password for HANA SYSTEM user for SystemDB in a multi tenant HANA|yes, if HANA 2.0 is being used|
+|sap_s4hana_deployment_hana_system_password|Password for HANA SYSTEM user for the whole HANA|yes|
+|sap_s4hana_deployment_parallel_jobs_nr|Number of parallel jobs to run the import of the S/4 HANA software into the HAN DB|yes|
+|sap_s4hana_deployment_db_sidadm_password|Password of the \<sid>adm user in the HANA server|yes|
+|sap_s4hana_deployment_igs_path|Path to the IGS file|yes|
+|sap_s4hana_deployment_igs_file_name|Name of the IGS file|yes|
+|sap_s4hana_deployment_igs_helper_path|Path to the IGS Helper file|yes|
+|sap_s4hana_deployment_igs_helper_file_name|Name of the IGS Helper file|yes|
+|sap_s4hana_deployment_kernel_dependent_path|Path to the kernel DB dependent file|yes|
+|sap_s4hana_deployment_kernel_dependent_file_name|Name of the kernel DB dependent file|yes|
+|sap_s4hana_deployment_kernel_independent_path|Path to the kernel DB independent file|yes|
+|sap_s4hana_deployment_kernel_independent_file_name|Name of the kernel DB independent file|yes|
+|sap_s4hana_deployment_fqdn|FQDN of the server (short name if FQDN is not configured)|yes|
+|sap_s4hana_deployment_set_fqdn|Specifies if FQDN will be used|no, defaulted to `true` - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
+|sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
+|sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
+|sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we want to override sap_s4hana_deployment_master_password|
 
 ## Dependencies
 
@@ -99,9 +103,12 @@ sap_s4hana_deployment_swpm_sar_file_name: SWPM20SP04_6-80003424.SAR
 sap_s4hana_deployment_sapcar_path: /usr/local/src
 sap_s4hana_deployment_sapcar_file_name: SAPCAR_1311-80000935.EXE
 sap_s4hana_deployment_product_id: S4HANA1909.CORE.HDB.ABAP
-sap_s4hana_deployment_db_schema: SAPHANADB
-sap_s4hana_deployment_db_schema_password: "mysecretpassword"
 sap_s4hana_deployment_master_password: "mysecretpassword"
+sap_s4hana_deployment_hana_systemdb_password: "mysecretpassword"
+sap_s4hana_deployment_db_schema_abap: "SAPHANADB"
+sap_s4hana_deployment_db_schema_abap_password: "mysecretpassword"
+sap_s4hana_deployment_db_schema_java: "SAPHANADB"
+sap_s4hana_deployment_db_schema_java_password: "mysecretpassword"
 sap_s4hana_deployment_sid: RHS
 sap_s4hana_deployment_ascs_instance_nr: "00"
 sap_s4hana_deployment_ascs_instance_hostname: "myhostname"
