@@ -51,11 +51,10 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_ddic_000_password|Password for SAP DDIC user in client 000|no|
 |sap_s4hana_deployment_ddic_001_password|Password for SAP DDIC user in client 001|no|
 |sap_s4hana_deployment_master_password|Password for users sapadm, \<sid>adm and SAP DDIC in clients 000 and 001|yes|
-
-sap_s4hana_deployment_db_schema_abap:
-sap_s4hana_deployment_db_schema_abap_password:
-sap_s4hana_deployment_db_schema_java:
-sap_s4hana_deployment_db_schema_java_password:
+|sap_s4hana_deployment_db_schema_abap|ABAP schema name in HANA|no, defaulted to `SAPHANADB`|
+|sap_s4hana_deployment_db_schema_abap_password|Password for ABAP schema in HANA|yes|
+|sap_s4hana_deployment_db_schema_java|JAVA schema name in HANA|no, defaulted to `SAPHANADB`|
+|sap_s4hana_deployment_db_schema_java_password|Password for JAVA schema in HANA|yes|
 
 |sap_s4hana_deployment_sid|SID of the S/4 HANA system|yes|
 |sap_s4hana_deployment_db_host|Host where the HANA DB runs|yes|
