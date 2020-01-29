@@ -2,9 +2,9 @@
 
 - name: Use SAPCAR to extract SWPM SAR file
   command: >-
-    "{{ sap_s4hana_deployment_sapcar_path }}/{{ sap_s4hana_deployment_sapcar_file_name }} \
+    {{ sap_s4hana_deployment_sapcar_path }}/{{ sap_s4hana_deployment_sapcar_file_name }} \
     -xvf {{ sap_s4hana_deployment_swpm_path }}/{{ sap_s4hana_deployment_swpm_sar_file_name }} \
-    -manifest SIGNATURE.SMF"
+    -manifest SIGNATURE.SMF
   register: extractswpm
   args:
     chdir: "{{ sap_s4hana_deployment_sapcar_path }}"
@@ -30,16 +30,16 @@
   copy:
     src: "{{ sap_s4hana_deployment_password_file_path }}/instkey.pkey"
     dest: "{{ tmpdir.path }}/instkey.pkey"
-    when: sap_s4hana_deployment_use_password_file == 'y'
+    remote_src: yes
+  when: sap_s4hana_deployment_use_password_file == "y"
 
 - name: Install SAP S4HANA
   command: >-
-    "./sapinst SAPINST_INPUT_PARAMETERS_URL={{ tmpdir.path }}/inifile.params \
+    ./sapinst SAPINST_INPUT_PARAMETERS_URL={{ tmpdir.path }}/inifile.params \
     SAPINST_EXECUTE_PRODUCT_ID={{ sap_s4hana_deployment_product_id }} \
-    SAPINST_SKIP_DIALOGS=true SAPINST_START_GUISERVER=false"
+    SAPINST_SKIP_DIALOGS=true SAPINST_START_GUISERVER=false
   register: installs4hana
   args:
     chdir: "{{ sapinst_path }}"
   when: true
-  # We need to check the output of the command to know when the status will be executed  
-  #changed_when: ""
+  changed_when: "'SAPinst build information' in installs4hana.stdout"
