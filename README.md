@@ -40,7 +40,7 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_sapcar_file_name|Name of the SAPCAR tool file|yes|
 |sap_s4hana_deployment_swpm_path|Target host directory path where SWPM tool file is located|yes|
 |sap_s4hana_deployment_swpm_sar_file_name|Name of the SWPM .SAR file|yes|
-|sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, defaulted to the product ID of S/4 HANA 1809 `NW_ABAP_OneHost:S4HANA1809.CORE.HDB.ABAP`|
+|sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, example `NW_ABAP_OneHost:S4HANA1909.CORE.HDB.ABAP`|
 |sap_s4hana_deployment_diagnostics_agent_password|Password for Diagnostics Agent|no|
 |sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
 |sap_s4hana_deployment_ascs_instance_hostname|ASCS instance hostname|yes|
@@ -53,7 +53,6 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_db_schema_abap_password|Password for ABAP schema in HANA|yes|
 |sap_s4hana_deployment_db_schema_java|JAVA schema name in HANA|no, defaulted to `SAPHANADB`|
 |sap_s4hana_deployment_db_schema_java_password|Password for JAVA schema in HANA|yes|
-
 |sap_s4hana_deployment_sid|SID of the S/4 HANA system|yes|
 |sap_s4hana_deployment_db_host|Host where the HANA DB runs|yes|
 |sap_s4hana_deployment_db_sid|SID of the HANA DB|yes|
