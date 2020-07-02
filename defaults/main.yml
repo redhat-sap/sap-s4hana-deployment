@@ -9,10 +9,6 @@ sap_s4hana_deployment_password_file_path:
 sap_s4hana_deployment_sapcar_path:
 sap_s4hana_deployment_sapcar_file_name:
 
-# Target host path and file name for the zip installation file
-sap_s4hana_deployment_zip_path:
-sap_s4hana_deployment_zip_file_name:
-
 # Target host path and file name for the SWPM .SAR file
 sap_s4hana_deployment_swpm_path:
 sap_s4hana_deployment_swpm_sar_file_name:
