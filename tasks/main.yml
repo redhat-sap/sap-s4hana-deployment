@@ -18,19 +18,19 @@
         dest: "{{ sap_s4hana_deployment_zip_path }}"
       register: sap_s4hana_deployment_register_extractzip
 
-- name: Setting fact for S/4 HANA installer path (CAR version)
-  set_fact:
-    sapinst_path: "{{ sap_s4hana_deployment_sapcar_path }}"
-  when:
-    - not(( sap_s4hana_deployment_sapcar_path is none) or ( sap_s4hana_deployment_sapcar_path | trim == '' ))
-    - not(( sap_s4hana_deployment_sapcar_file_name is none) or ( sap_s4hana_deployment_sapcar_file_name | trim == '' ))
+    - name: Setting fact for S/4 HANA installer path (CAR version)
+      set_fact:
+        sapinst_path: "{{ sap_s4hana_deployment_sapcar_path }}"
+      when:
+        - not(( sap_s4hana_deployment_sapcar_path is none) or ( sap_s4hana_deployment_sapcar_path | trim == '' ))
+        - not(( sap_s4hana_deployment_sapcar_file_name is none) or ( sap_s4hana_deployment_sapcar_file_name | trim == '' ))
 
-- name:  Setting fact for S/4 HANA installer path (ZIP version)
-  set_fact:
-    sapinst_path: "{{ sap_s4hana_deployment_zip_path }}"
-  when:
-    - not(( sap_s4hana_deployment_zip_path is none) or ( sap_s4hana_deployment_zip_path | trim == '' ))
-    - not(( sap_s4hana_deployment_zip_file_name is none) or ( sap_s4hana_deployment_zip_file_name | trim == '' ))
+    - name:  Setting fact for S/4 HANA installer path (ZIP version)
+      set_fact:
+        sapinst_path: "{{ sap_s4hana_deployment_zip_path }}"
+      when:
+        - not(( sap_s4hana_deployment_zip_path is none) or ( sap_s4hana_deployment_zip_path | trim == '' ))
+        - not(( sap_s4hana_deployment_zip_file_name is none) or ( sap_s4hana_deployment_zip_file_name | trim == '' ))
 
 - name: create temporary directory to store the processed template
   tempfile:
