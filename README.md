@@ -40,7 +40,8 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_sapcar_file_name|Name of the SAPCAR tool file|yes|
 |sap_s4hana_deployment_swpm_path|Target host directory path where SWPM tool file is located|yes|
 |sap_s4hana_deployment_swpm_sar_file_name|Name of the SWPM .SAR file|yes|
-|sap_s4hana_deployment_product_id|SAP product reference that will be installed|yes, example `NW_ABAP_OneHost:S4HANA1909.CORE.HDB.ABAP`|
+|sap_s4hana_deployment_ascs_product_id|ASCS SAP product reference that will be installed|yes, example `NW_ABAP_OneHost:S4HANA1909.CORE.HDB.ABAP`|
+|sap_s4hana_deployment_ers_product_id|ERS SAP product reference that will be installed|no, example `NW_ERS:S4HANA2020.CORE.HDB.ABAPHA`. If empty, does not install ERS|
 |sap_s4hana_deployment_diagnostics_agent_password|Password for Diagnostics Agent|no|
 |sap_s4hana_deployment_ascs_instance_nr|ASCS instance number|yes - **note the required double quotes while adding the variable to your inventory so this is interpreted as a string**|
 |sap_s4hana_deployment_ascs_instance_hostname|ASCS instance hostname|yes|
@@ -74,6 +75,9 @@ It is also important that your disks are setup according to the [SAP storage req
 |sap_s4hana_deployment_software_path|Path to the S4/HANA software exports|yes|
 |sap_s4hana_deployment_sapadm_password|Password for sapadm of SAP Host Agent|no, only if we want to override sap_s4hana_deployment_master_password|
 |sap_s4hana_deployment_sap_sidadm_password|Password for \<sid>adm|no, only if we want to override sap_s4hana_deployment_master_password|
+|sap_s4hana_deployment_vhost_ascs|Short name of vhost for ASCS system|yes (but shouldn't be, to support non-cluster install TODO)|
+|sap_s4hana_deployment_vhost_ers|Short name of vhost for ERS system|no, ERS install skipped if empty (should be smarter to enable, ers or no, cluster or no, TODO)|
+|sap_s4hana_deployment_sap_domain|SAP Domain name|
 
 ## Dependencies
 
@@ -98,7 +102,7 @@ sap_s4hana_deployment_swpm_path: /usr/local/src
 sap_s4hana_deployment_swpm_sar_file_name: SWPM20SP04_6-80003424.SAR
 sap_s4hana_deployment_sapcar_path: /usr/local/src
 sap_s4hana_deployment_sapcar_file_name: SAPCAR_1311-80000935.EXE
-sap_s4hana_deployment_product_id: S4HANA1909.CORE.HDB.ABAP
+sap_s4hana_deployment_ascs_product_id: S4HANA1909.CORE.HDB.ABAP
 sap_s4hana_deployment_master_password: "mysecretpassword"
 sap_s4hana_deployment_hana_systemdb_password: "mysecretpassword"
 sap_s4hana_deployment_db_schema_abap: "SAPHANADB"

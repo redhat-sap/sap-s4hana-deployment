@@ -1,3 +1,8 @@
+#RHC Notes:
+#
+# This file is used for both ASCS and ERS installations
+# This is possibly offensive to "The SAP way", but it seems that the keys are all namespaced to install target.
+
 # Password for the Diagnostics Agent specific <dasid>adm user. Provided value may be encoded.
 # DiagnosticsAgent.dasidAdmPassword = {{ sap_s4hana_deployment_diagnostics_agent_password }}
 
@@ -14,10 +19,10 @@
 # HDB_Schema_Check_Dialogs.schemaName =
 
 # The password of the database schema.
-HDB_Schema_Check_Dialogs.schemaPassword = {{ sap_s4hana_deployment_db_schema_abap_password }}
+#HDB_Schema_Check_Dialogs.schemaPassword = {{ sap_s4hana_deployment_db_schema_abap_password }}
 
 # Specify whether Software Provisioning Manager is to validate the schema name. The schema name must only contain numbers and capital letters. It  must not start with '_' . It cannot be 'SYS' or 'SYSTEM'.
-HDB_Schema_Check_Dialogs.validateSchemaName = false
+#HDB_Schema_Check_Dialogs.validateSchemaName = false
 
 # Use SAP HANA Media on CD, do not ask for SAR archives
 # HDB_Software_Dialogs.useMediaCD = false
@@ -44,13 +49,13 @@ HDB_Schema_Check_Dialogs.validateSchemaName = false
 # NW_CI_Instance.ascsInstallWebDispatcher = false
 
 # Standard system with AS ABAP only: ASCS instance number. Leave empty for default.
-NW_CI_Instance.ascsInstanceNumber = {{ sap_s4hana_deployment_ascs_instance_nr }}
+#NW_CI_Instance.ascsInstanceNumber = {{ sap_s4hana_deployment_ascs_instance_nr }}
 
 # Standard system with AS ABAP only: Virtual host name for the ASCS instance. Leave empty for default.
 NW_CI_Instance.ascsVirtualHostname = {{ sap_s4hana_deployment_ascs_instance_hostname }}
 
 # Instance number of the primary application server instance. Leave empty for default.
-NW_CI_Instance.ciInstanceNumber = {{ sap_s4hana_deployment_pas_instance_nr }}
+#NW_CI_Instance.ciInstanceNumber = {{ sap_s4hana_deployment_pas_instance_nr }}
 
 # The ABAP message server port. Leave empty for default.
 # NW_CI_Instance.ciMSPort =
@@ -59,7 +64,7 @@ NW_CI_Instance.ciInstanceNumber = {{ sap_s4hana_deployment_pas_instance_nr }}
 # NW_CI_Instance.ciMSPortInternal =
 
 # Virtual host name of the primary application server instance . Leave empty for default.
-NW_CI_Instance.ciVirtualHostname = {{ sap_s4hana_deployment_pas_instance_hostname }}
+NW_CI_Instance.ciVirtualHostname = {{ sap_s4hana_deployment_ascs_instance_hostname }}
 
 # Create file 'prxyinfo(.DAT)' in the global directory, if it does not already exist and set 'gw/prxy_info' in the default profile accordingly.  Default is 'false'.
 # NW_CI_Instance.createGlobalProxyInfoFile = false
@@ -74,7 +79,7 @@ NW_CI_Instance.ciVirtualHostname = {{ sap_s4hana_deployment_pas_instance_hostnam
 # NW_CI_Instance.scsMSPortInternal =
 
 # Standard system with AS Java only: Virtual host name for the SCS instance. Leave empty for default.
-NW_CI_Instance.scsVirtualHostname = {{ sap_s4hana_deployment_pas_instance_hostname }}
+#NW_CI_Instance.scsVirtualHostname = {{ sap_s4hana_deployment_ascs_instance_hostname }}
 
 # Activate ICF node '/SAP/BC/REST/SLPROTOCOL'
 # NW_CI_Instance_ABAP_Reports.enableActivateICFService = false
@@ -92,13 +97,13 @@ NW_CI_Instance.scsVirtualHostname = {{ sap_s4hana_deployment_pas_instance_hostna
 # NW_CreateDBandLoad.movePVCforUsagePiAndDi =
 
 # Password of the DDIC user in client 000
-NW_DDIC_Password.ddic000Password = {{ sap_s4hana_deployment_ddic_000_password }}
+#NW_DDIC_Password.ddic000Password = {{ sap_s4hana_deployment_ddic_000_password }}
 
 # Password of the DDIC user in client 001
 # NW_DDIC_Password.ddic001Password = {{ sap_s4hana_deployment_ddic_001_password }}
 
 # Specify whether the all operating system users are to be removed from group 'sapinst' after the execution of Software Provisioning Manager has completed.
-NW_Delete_Sapinst_Users.removeUsers = true
+#NW_Delete_Sapinst_Users.removeUsers = true
 
 # Master password
 NW_GetMasterPassword.masterPwd = {{ sap_s4hana_deployment_master_password }}
@@ -187,7 +192,8 @@ NW_Recovery_Install_HDB.sidAdmName = {{ sap_s4hana_deployment_db_sid|lower }}adm
 NW_Recovery_Install_HDB.sidAdmPassword = {{ sap_s4hana_deployment_db_sidadm_password }}
 
 # Path to SAP Crypto files in kernel
-NW_SAPCrypto.SAPCryptoFile = {{ sap_s4hana_deployment_kernel_independent_path }}
+##RHC RHC RHC was : {{ sap_s4hana_deployment_kernel_independent_path }}
+NW_SAPCrypto.SAPCryptoFile = /sapcds/S4HANA_installation/SAPEXE_300-80004393.SAR 
 
 # Enable the instance agent (sapstartsrv) data supplier to send operating system information to the System Landscape Directory (SLD). Default is 'false'.
 # NW_SLD_Configuration.configureSld = false
@@ -208,19 +214,19 @@ NW_SAPCrypto.SAPCryptoFile = {{ sap_s4hana_deployment_kernel_independent_path }}
 # NW_SLD_Configuration.sldUserPassword =
 
 # SAP INTERNAL USE ONLY
-# NW_System.installSAPHostAgent = true
+NW_System.installSAPHostAgent = false
 
 # Path to IGS files
-NW_Unpack.igsExeSar = "{{ sap_s4hana_deployment_igs_path }}/{{ sap_s4hana_deployment_igs_file_name }}"
+#NW_Unpack.igsExeSar = "{{ sap_s4hana_deployment_igs_path }}/{{ sap_s4hana_deployment_igs_file_name }}"
 
 # Path to IGS Helper files
-NW_Unpack.igsHelperSar = "{{ sap_s4hana_deployment_igs_helper_path }}/{{ sap_s4hana_deployment_igs_helper_file_name }}"
+#NW_Unpack.igsHelperSar = "{{ sap_s4hana_deployment_igs_helper_path }}/{{ sap_s4hana_deployment_igs_helper_file_name }}"
 
 # Path to kernel DB dependent files
-NW_Unpack.sapExeDbSar = "{{ sap_s4hana_deployment_kernel_dependent_path }}/{{ sap_s4hana_deployment_kernel_dependent_file_name }}"
+#NW_Unpack.sapExeDbSar = "{{ sap_s4hana_deployment_kernel_dependent_path }}/{{ sap_s4hana_deployment_kernel_dependent_file_name }}"
 
 # Path to kernel DB independent files
-NW_Unpack.sapExeSar = "{{ sap_s4hana_deployment_kernel_independent_path }}/{{ sap_s4hana_deployment_kernel_independent_file_name }}"
+#NW_Unpack.sapExeSar = "{{ sap_s4hana_deployment_kernel_independent_path }}/{{ sap_s4hana_deployment_kernel_independent_file_name }}"
 
 # SAP offers the option to skip setting of security profile parameters (NOT recommended) only for compatibility reasons. Set to true and the file with recommended security settings will not be taken into consideration. See SAP Note 2714839 for security recommendations.
 # NW_adaptProfile.skipSecurityProfileSettings = false
@@ -232,10 +238,10 @@ NW_Unpack.sapExeSar = "{{ sap_s4hana_deployment_kernel_independent_path }}/{{ sa
 NW_getFQDN.FQDN = {{ sap_s4hana_deployment_fqdn }}
 
 # Specify whether you want to set FQDN for the system.
-NW_getFQDN.setFQDN = {{ sap_s4hana_deployment_set_fqdn | lower }}
+#NW_getFQDN.setFQDN = {{ sap_s4hana_deployment_set_fqdn | lower }}
 
 # The load type chosen by the user. Valid values are: 'SAP', 'STD', 'OBR', 'HCP', 'MDA', 'HBR', 'SBR'
-NW_getLoadType.loadType = SAP
+#NW_getLoadType.loadType = SAP
 
 # The ASP device name where the SAP system will be in installed. The property is IBM i only.
 # Values from 1 to 256 can be specified. The default is 1, the System ASP.
@@ -245,13 +251,13 @@ NW_getLoadType.loadType = SAP
 archives.downloadBasket = {{ sap_s4hana_deployment_software_path }}
 
 # DBACOCKPIT user is to be created. Default value is 'true'.
-hdb.create.dbacockpit.user = true
+#hdb.create.dbacockpit.user = true
 
 # Windows only: The domain of the SAP Host Agent user
 # hostAgent.domain =
 
 # Password for the 'sapadm' user of the SAP Host Agent
-hostAgent.sapAdmPassword = {{ sap_s4hana_deployment_sapadm_password }}
+#hostAgent.sapAdmPassword = {{ sap_s4hana_deployment_sapadm_password }}
 
 # installation_export.archivesFolder =
 
@@ -278,3 +284,12 @@ nwUsers.sidadmPassword = {{ sap_s4hana_deployment_sap_sidadm_password }}
 
 # Sets the SAP<SAPSID>DB schema password using a  parameter file.
 # storageBasedCopy.javaSchemaPassword =
+
+
+# You can specify a virtual host name for the ASCS instance. Leave empty for default.
+NW_SCS_Instance.scsVirtualHostname = {{ sap_s4hana_deployment_vhost_ascs }}
+
+nw_instance_ers.ersVirtualHostname = {{ sap_s4hana_deployment_vhost_ers }}
+
+# Provide  'profile' directory of SAP Netweaver-based system.
+NW_readProfileDir.profileDir = /usr/sap/{{ sap_s4hana_deployment_sid }}/SYS/profile

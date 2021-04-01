@@ -33,13 +33,30 @@
     remote_src: yes
   when: sap_s4hana_deployment_use_password_file == "y"
 
-- name: Install SAP S4HANA
+- name: Install SAP S4HANA ASCS
   command: >-
     ./sapinst SAPINST_INPUT_PARAMETERS_URL={{ tmpdir.path }}/inifile.params \
-    SAPINST_EXECUTE_PRODUCT_ID={{ sap_s4hana_deployment_product_id }} \
-    SAPINST_SKIP_DIALOGS=true SAPINST_START_GUISERVER=false
+    SAPINST_EXECUTE_PRODUCT_ID={{ sap_s4hana_deployment_ascs_product_id }} \
+    SAPINST_SKIP_DIALOGS=true SAPINST_START_GUISERVER=false  \
+    SAPLOCALHOST={{ sap_s4hana_deployment_vhost_ascs }} SAPLOCALHOSTFULL={{ sap_s4hana_deployment_vhost_ascs }}.{{ sap_s4hana_deployment_sap_domain }} \
+  #rhc ^^ per https://launchpad.support.sap.com/#/notes/2279110
+  #       and https://launchpad.support.sap.com/#/notes/962955
   register: installs4hana
   args:
     chdir: "{{ sapinst_path }}"
-  when: true
+  changed_when: "'SAPinst build information' in installs4hana.stdout"
+
+- name: Install SAP S4HANA ERS
+  command: >-
+    ./sapinst SAPINST_INPUT_PARAMETERS_URL={{ tmpdir.path }}/inifile.params \
+    SAPINST_EXECUTE_PRODUCT_ID={{ sap_s4hana_deployment_ers_product_id }} \
+    SAPINST_SKIP_DIALOGS=true SAPINST_START_GUISERVER=false  \
+    SAPLOCALHOST={{ sap_s4hana_deployment_vhost_ers }} SAPLOCALHOSTFULL={{ sap_s4hana_deployment_vhost_ers }}.{{ sap_s4hana_deployment_sap_domain }} \
+  #rhc ^^ per https://launchpad.support.sap.com/#/notes/2279110
+  #       and https://launchpad.support.sap.com/#/notes/962955
+  #TODO: trigger installing based on sap_s4hana_deployment_ers_product_id being set
+  register: installs4hana
+  args:
+    chdir: "{{ sapinst_path }}"
+  when: sap_s4hana_deployment_ers_product_id != ''
   changed_when: "'SAPinst build information' in installs4hana.stdout"

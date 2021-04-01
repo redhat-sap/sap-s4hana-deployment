@@ -14,7 +14,9 @@ sap_s4hana_deployment_swpm_path:
 sap_s4hana_deployment_swpm_sar_file_name:
 
 # SAP product that will be installed and passed as argument to the sapinst installer, example 'NW_ABAP_OneHost:S4HANA1909.CORE.HDB.ABAP'
-sap_s4hana_deployment_product_id: 
+sap_s4hana_deployment_ascs_product_id: 
+
+sap_s4hana_deployment_ers_product_id: 
 
 # Response variables for unattended installation config file
 sap_s4hana_deployment_diagnostics_agent_password:
