@@ -1,4 +1,4 @@
-# sap-s4hana-deployment [![Build Status](https://travis-ci.com/redhat-sap/sap-s4hana-deployment.svg?branch=master)](https://travis-ci.com/redhat-sap/sap-s4hana-deployment)
+# sap-s4hana-deployment ![Ansible Lint](https://github.com/redhat-sap/sap-s4hana-deployment/workflows/Ansible%20Lint/badge.svg?branch=master) ![Ansible Galaxy Import](https://github.com/redhat-sap/sap-s4hana-deployment/workflows/Ansible%20Galaxy%20Import/badge.svg?branch=master)
 
 This role installs SAP S/4 HANA on a RHEL 7.x or 8.x system
 
