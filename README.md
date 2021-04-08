@@ -128,7 +128,7 @@ sap_s4hana_deployment_fqdn: "rhel-01"
 
 ## License
 
-GPLv3
+Apache License 2.0
 
 ## Author Information
 
